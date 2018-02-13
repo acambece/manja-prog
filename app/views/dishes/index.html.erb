@@ -1,0 +1,15 @@
+<%= link_to "Add Dish", new_dish_url, style: 'padding: 6px 12px; background-color: #eeeeee;' %>
+<button>Add Restaurant</button>
+
+<h3>Dishes</h3>
+
+<h4>
+<ul>
+  Image for each dish
+  Add a list of tags for each dish
+  <% @dishes.each do |dish| %>
+
+    <ul><%= link_to dish.name, dish %></ul>
+  <% end %>
+</ul>
+</h4>

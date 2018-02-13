@@ -1,0 +1,24 @@
+
+<div id="dish-form">
+  <%= form_for @dish, html: {class: "new-dish-form"} do |f| %>
+
+    <div id="name-field">
+      <%= f.label :name, "Name" %>
+      <%= f.text_field :name %>
+    </div>
+
+    <div id="state-field">
+      <%= f.label :photo_url, "Photo URL"  %>
+      <%= f.text_field :photo_url  %>
+    </div>
+
+    <div id="description-field">
+      <%= f.label :description, "Description"  %>
+      <%= f.text_area :description  %>
+    </div>
+
+    <div id="new-dish-button">
+      <%= f.submit 'Submit', class: "success button"  %>
+    </div>
+  <% end %>
+</div>

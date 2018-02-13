@@ -45,19 +45,19 @@ ActiveRecord::Schema.define(version: 20180131013529) do
     t.string "name", null: false
     t.string "photo_url", null: false
     t.text "description"
-    t.bigint "restraunt_id"
+    t.bigint "restaurant_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["restraunt_id"], name: "index_dishes_on_restraunt_id"
+    t.index ["restaurant_id"], name: "index_dishes_on_restaurant_id"
   end
 
-  create_table "restraunts", force: :cascade do |t|
+  create_table "restaurants", force: :cascade do |t|
     t.bigint "address_id"
     t.string "name", null: false
     t.string "photo_url", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["address_id"], name: "index_restraunts_on_address_id"
+    t.index ["address_id"], name: "index_restaurants_on_address_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -87,5 +87,5 @@ ActiveRecord::Schema.define(version: 20180131013529) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
-  add_foreign_key "restraunts", "addresses"
+  add_foreign_key "restaurants", "addresses"
 end

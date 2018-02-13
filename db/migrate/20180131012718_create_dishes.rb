@@ -4,7 +4,7 @@ class CreateDishes < ActiveRecord::Migration[5.1]
       t.string :name, null: false
       t.string :photo_url, null: false
       t.text :description
-      t.belongs_to :restraunt
+      t.belongs_to :restaurant
 
       t.timestamps
     end
