@@ -1,0 +1,54 @@
+<h1>New Restaurant</h1>
+<div id="restaurant-form">
+  <%= form_for @restaurant, html: {class: "new-restaurant-form"} do |f| %>
+
+    <div id="name-field">
+      <%= f.label :name, "Name" %>
+      <%= f.text_field :name %>
+    </div>
+
+    <div id="photo-url-field">
+      <%= f.label :photo_url, "Photo URL"  %>
+      <%= f.text_field :photo_url  %>
+    </div>
+
+    <h2>Address</h2>
+    <div id="restaurant-address-fields">
+      <%= f.fields_for :address do |fa| %>
+        <div id="line-1-field">
+          <%= fa.label :line_1 %>
+          <%= fa.text_field :line_1 %>
+        </div>
+
+        <div id="line-2-field">
+          <%= fa.label :line_2 %>
+          <%= fa.text_field :line_2 %>
+        </div>
+
+        <div id="city-field">
+          <%= fa.label :city %>
+          <%= fa.text_field :city %>
+        </div>
+
+        <div id="state-field">
+          <%= fa.label :state %>
+          <select name="restaurant[address_attributes][state]">
+            <% us_states.each do |state| %>
+            <option value="<%= state[1] %>"><%= state[0] %></option>
+            <% end %>
+          </select>
+        </div>
+
+        <div id="zip-field">
+          <%= fa.label :zip %>
+          <%= fa.text_field :zip %>
+        </div>
+
+      <% end %>
+    </div>
+
+    <div id="new-restaurant-button">
+      <%= f.submit 'Submit'  %>
+    </div>
+  <% end %>
+</div>

@@ -1,15 +1,15 @@
 class DishesController < ApplicationController
 
   def index
-    @dishes = Dish.all
+    @dishes = restaurant.dishes.all
   end
 
   def new
-    @dish = Dish.new
+    @dish = restaurant.dishes.build
   end
 
   def create
-    @dish = Dish.new(dish_params)
+    @dish = restaurant.dishes.build(dish_params)
         byebug
     if @dish.save
       redirect_to @dish
@@ -19,25 +19,27 @@ class DishesController < ApplicationController
   end
 
   def update
-    @dish = Dish.find(params[:id])
+    @dish = restaurant.dishes.find(params[:id])
     if @dish.update(dish_params)
       # have these be more specific flash messages
-      redirect_to :index, notice: "success"
+      redirect_to [restaurant, @dish]
     else
-      # use errors from validations
-      #errors =  @dash.errors.full_messages.join(", ")
-      redirect_to :index, error: "there was a problem"
+      render :edit
     end
   end
 
   def show
-    @dish = Dish.find(params[:id])
+    @dish = restaurant.dishes.find(params[:id])
   end
 
   private
 
   def dish_params
     params.require(:dish).permit(:name, :photo_url, :description)
+  end
+
+  def restaurant
+    @restaurant ||= Restaurant.find(params[:restaurant_id])
   end
 end
 

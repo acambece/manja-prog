@@ -1,6 +1,6 @@
 
 <div id="dish-form">
-  <%= form_for @dish, html: {class: "new-dish-form"} do |f| %>
+  <%= form_for [@restaurant, @dish], html: {class: "new-dish-form"} do |f| %>
 
     <div id="name-field">
       <%= f.label :name, "Name" %>
