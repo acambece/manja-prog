@@ -1,10 +1,8 @@
 if Rails.env.development?
 
-  toscana = Restaurant.create!(name: "Toscana", photo_url: "http://images.miamiandbeaches.com/images/109783_4637_full.jpg")
-
-    toscana.build_address line_1: "3 Bourbon St", city: "Peabody", state: "MA", zip: "01960"
-    toscana.save!
-
+  toscana = Restaurant.new(name: "Toscana", photo_url: "http://images.miamiandbeaches.com/images/109783_4637_full.jpg")
+  toscana.build_address line_1: "3 Bourbon St", city: "Peabody", state: "MA", zip: "01960"
+  toscana.save
 
 
 shrimp_scampi=toscana.dishes.create! name: "Shrimp Scampi", photo_url: "https://static01.nyt.com/images/2016/05/28/dining/28COOKING-CLASSIC-SHRIMP-SCAMPI1/28COOKING-CLASSIC-SHRIMP-SCAMPI1-videoSixteenByNineJumbo1600.jpg"

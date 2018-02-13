@@ -1,5 +1,6 @@
 class Restaurant < ApplicationRecord
-
   has_many :dishes
-  has_one :address
+  belongs_to :address
+
+  validates :name, presence: true
 end

@@ -28,7 +28,7 @@ ActiveRecord::Schema.define(version: 20180131013529) do
   create_table "dietary_tag_associations", force: :cascade do |t|
     t.string "tagged_type"
     t.bigint "tagged_id"
-    t.bigint "dietary_tag_id", null: false
+    t.bigint "dietary_tag_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["dietary_tag_id"], name: "index_dietary_tag_associations_on_dietary_tag_id"
@@ -55,11 +55,6 @@ ActiveRecord::Schema.define(version: 20180131013529) do
     t.bigint "address_id"
     t.string "name", null: false
     t.string "photo_url", null: false
-    t.string "street_address", null: false
-    t.string "apartment_address"
-    t.string "city", null: false
-    t.string "state", null: false
-    t.string "zip", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["address_id"], name: "index_restaurants_on_address_id"
